@@ -1,23 +1,353 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px Times; color: #eae96f; -webkit-text-stroke: #eae96f}
-    span.s1 {font-kerning: none}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Omar Khamis · Data Analyst</title>
+  <meta name="description" content="Omar Khamis — Senior Data Analyst in Cairo. Business intelligence, predictive modeling and data governance with Python, SQL, R and Power BI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f7f9;
+      --text: #16181d;
+      --muted: #5b6270;
+      --line: #e4e7ec;
+      --accent: #0f766e;
+      --accent-soft: #e6f4f2;
+      --radius: 12px;
+      --max: 960px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1115;
+        --bg-soft: #171a20;
+        --text: #eceef2;
+        --muted: #9aa1ad;
+        --line: #262a33;
+        --accent: #2dd4bf;
+        --accent-soft: #13302d;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+    .logo:hover { text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 24px; }
+    nav ul a { color: var(--muted); font-size: 15px; font-weight: 500; }
+    nav ul a:hover { color: var(--text); text-decoration: none; }
+
+    /* Hero */
+    .hero { padding: 96px 0 72px; }
+    .eyebrow { color: var(--accent); font-weight: 600; font-size: 15px; margin-bottom: 12px; }
+    h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.1; letter-spacing: -0.03em; font-weight: 700; }
+    .lead { color: var(--muted); font-size: clamp(17px, 2.2vw, 20px); max-width: 640px; margin-top: 20px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; font-weight: 500; font-size: 15px;
+      border: 1px solid var(--line); color: var(--text); background: var(--bg);
+    }
+    .btn:hover { border-color: var(--accent); text-decoration: none; }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* Sections */
+    section { padding: 72px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 28px; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .sub { color: var(--muted); margin-bottom: 36px; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+    .about-grid p + p { margin-top: 14px; }
+    .skill-group + .skill-group { margin-top: 20px; }
+    .skill-group h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--line); }
+
+    /* Timeline */
+    .timeline { list-style: none; }
+    .role { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .role:last-child { border-bottom: 0; }
+    .when { color: var(--muted); font-size: 14px; padding-top: 2px; }
+    .role h3 { font-size: 17px; font-weight: 600; }
+    .org { color: var(--accent); font-weight: 500; }
+    .role p { color: var(--muted); margin-top: 6px; font-size: 15px; }
+
+    /* Projects */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .filter {
+      font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 999px; cursor: pointer;
+      background: var(--bg); color: var(--muted); border: 1px solid var(--line);
+    }
+    .filter[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .card {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+      background: var(--bg); color: var(--text); transition: border-color .15s, transform .15s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+    .card[hidden] { display: none; }
+    .card .lang { font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+    .card h3 { font-size: 17px; margin: 8px 0 8px; line-height: 1.35; }
+    .card p { color: var(--muted); font-size: 14.5px; flex: 1; }
+    .card .tags { margin-top: 16px; }
+    .card .tag { font-size: 12px; padding: 2px 8px; }
+    .card .more { margin-top: 16px; font-size: 14px; font-weight: 500; color: var(--accent); }
+
+    /* Education */
+    .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .edu-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--bg-soft); }
+    .edu-card h3 { font-size: 17px; }
+    .edu-card .org { display: block; margin-top: 2px; }
+    .edu-card p { color: var(--muted); font-size: 14.5px; margin-top: 10px; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .actions { justify-content: center; }
+    footer { padding: 32px 0; color: var(--muted); font-size: 14px; text-align: center; border-top: 1px solid var(--line); }
+
+    @media (max-width: 720px) {
+      nav ul { gap: 16px; }
+      nav ul li.opt { display: none; }
+      .hero { padding: 64px 0 48px; }
+      section { padding: 56px 0; }
+      .about-grid, .edu { grid-template-columns: 1fr; gap: 32px; }
+      .edu { gap: 16px; }
+      .role { grid-template-columns: 1fr; gap: 4px; }
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;h1&gt;Hello World&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1">&lt;p&gt;I'm hosted with GitHub Pages.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Omar Khamis</a>
+    <ul>
+      <li class="opt"><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Senior Data Analyst · Cairo, Egypt</p>
+    <h1>Turning data into decisions people can act on.</h1>
+    <p class="lead">I build dashboards, predictive models and data-quality frameworks that help organizations make better calls — from commercial strategy and credit risk to executive reporting and data governance.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="https://www.linkedin.com/in/omar-a-khamis" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn</a>
+      <a class="btn" href="https://github.com/oakhamis" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3"/></svg>
+        GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>About</h2>
+      <p>I'm a data analyst who pairs technical rigor with business sense. I started out in mechanical engineering at The American University in Cairo, then earned an M.Sc. in Big Data Analytics (Distinction) from Birmingham City University.</p>
+      <p>Since then I've worked across the full data lifecycle: market analysis at Pirelli, executive BI reporting at Telecom Egypt, credit risk scoring at I-SCORE, and enterprise data governance at Malomatia.</p>
+    </div>
+    <div>
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">SAS</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>BI &amp; Platforms</h3>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">SAP HANA</span><span class="tag">SAP ERP</span><span class="tag">PySpark</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Methods</h3>
+        <div class="tags"><span class="tag">Machine learning</span><span class="tag">Feature engineering</span><span class="tag">Statistics &amp; forecasting</span><span class="tag">NLP</span><span class="tag">Data governance</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="sub">Roles across commercial, telecom, credit and enterprise data.</p>
+    <ol class="timeline">
+      <li class="role">
+        <div class="when">Dec 2024 – Present</div>
+        <div>
+          <h3>Senior Data Analyst · <span class="org">Malomatia</span></h3>
+          <p>Enterprise data governance: data-quality metrics, governance standards and company-wide tracking frameworks, with reporting in Power BI on SAP HANA.</p>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when">Dec 2023 – Nov 2024</div>
+        <div>
+          <h3>Senior Data Analyst · <span class="org">I-SCORE (Egyptian Credit Bureau)</span></h3>
+          <p>Credit risk scoring with SQL and SAS: feature engineering, predictive cutoff strategy and model optimization.</p>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when">Oct 2023 – Nov 2023</div>
+        <div>
+          <h3>Research Assistant · <span class="org">The American University in Cairo</span></h3>
+          <p>Part-time research support using Python.</p>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when">Jun 2022 – Sep 2023</div>
+        <div>
+          <h3>Data Analyst · <span class="org">Telecom Egypt</span></h3>
+          <p>End-to-end BI dashboards and executive reporting for senior leadership and cross-functional teams.</p>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when">Mar 2018 – Apr 2019</div>
+        <div>
+          <h3>Business Analyst · <span class="org">Pirelli</span></h3>
+          <p>Commercial and market strategy: sales scenario simulation, competitor analysis and customer master-data integrity.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">Selected analyses and dashboards. Each card links to the code on GitHub.</p>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="filter" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter" data-filter="python" aria-pressed="false">Python</button>
+      <button class="filter" data-filter="r" aria-pressed="false">R</button>
+      <button class="filter" data-filter="powerbi" aria-pressed="false">Power BI</button>
+    </div>
+    <div class="grid">
+      <a class="card" data-cat="powerbi" href="https://github.com/oakhamis/World_Cup_Analysis_Dashboard" target="_blank" rel="noopener">
+        <span class="lang">Power BI</span>
+        <h3>FIFA World Cup Analysis</h3>
+        <p>What drives attendance, extra time, penalties and goals? Uses Key Influencers to answer ten questions across World Cup history.</p>
+        <div class="tags"><span class="tag">Key Influencers</span><span class="tag">Dashboard</span></div>
+        <span class="more">View repo →</span>
+      </a>
+      <a class="card" data-cat="powerbi" href="https://github.com/oakhamis/Online_Travel_Agency_Dashboard" target="_blank" rel="noopener">
+        <span class="lang">Power BI</span>
+        <h3>Online Travel Agency Dashboard</h3>
+        <p>Orders, destinations, revenue trends and insurance choices for an online travel agency, plus a self-service report page.</p>
+        <div class="tags"><span class="tag">Key Influencers</span><span class="tag">Self-service BI</span></div>
+        <span class="more">View repo →</span>
+      </a>
+      <a class="card" data-cat="r" href="https://github.com/oakhamis/Climate_Change_Statistics" target="_blank" rel="noopener">
+        <span class="lang">R</span>
+        <h3>Ice Sheets &amp; Sea-Level Rise</h3>
+        <p>Measures how Greenland and Antarctic ice loss relates to global sea level using NASA data, regression models and ARIMA forecasting.</p>
+        <div class="tags"><span class="tag">Regression</span><span class="tag">Time series</span></div>
+        <span class="more">View repo →</span>
+      </a>
+      <a class="card" data-cat="r" href="https://github.com/oakhamis/Bank_Data_Mining" target="_blank" rel="noopener">
+        <span class="lang">R</span>
+        <h3>Bank Term-Deposit Prediction</h3>
+        <p>Predicts which clients will subscribe to a term deposit, comparing logistic regression, decision tree and random forest models.</p>
+        <div class="tags"><span class="tag">Classification</span><span class="tag">Feature importance</span></div>
+        <span class="more">View repo →</span>
+      </a>
+      <a class="card" data-cat="python" href="https://github.com/oakhamis/Feature_Selection_Genetic_Algorithm" target="_blank" rel="noopener">
+        <span class="lang">Python</span>
+        <h3>Feature Selection with Genetic Algorithms</h3>
+        <p>Tunes a genetic algorithm to choose the most useful features for a banking model, testing population, crossover and mutation settings.</p>
+        <div class="tags"><span class="tag">Optimization</span><span class="tag">scikit-learn</span></div>
+        <span class="more">View repo →</span>
+      </a>
+      <a class="card" data-cat="python" href="https://github.com/oakhamis/Web_Social_Media_Analysis" target="_blank" rel="noopener">
+        <span class="lang">Python</span>
+        <h3>2021 AAPI Movement on Twitter &amp; News</h3>
+        <p>Sentiment, subjectivity and topic modeling on news articles and tweets, plus network analysis to find communities and key accounts.</p>
+        <div class="tags"><span class="tag">NLP</span><span class="tag">Network analysis</span></div>
+        <span class="more">View repo →</span>
+      </a>
+      <a class="card" data-cat="python" href="https://github.com/oakhamis/Big_Data_Catch_The_Pink_Flamingo" target="_blank" rel="noopener">
+        <span class="lang">Python</span>
+        <h3>Catch the Pink Flamingo</h3>
+        <p>Big-data case study of player engagement in a mobile game: classification, K-means clustering and graph analysis with PySpark.</p>
+        <div class="tags"><span class="tag">PySpark</span><span class="tag">Clustering</span></div>
+        <span class="more">View repo →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <p class="sub">Engineering foundations, then a master's in big data.</p>
+    <div class="edu">
+      <div class="edu-card">
+        <h3>M.Sc. Big Data Analytics</h3>
+        <span class="org">Birmingham City University</span>
+        <p>2020 – 2021 · Distinction. Applied statistics, data mining, big data management, optimisation, and web &amp; social media analytics.</p>
+      </div>
+      <div class="edu-card">
+        <h3>B.Sc. Mechanical Engineering</h3>
+        <span class="org">The American University in Cairo</span>
+        <p>2011 – 2017 · Industrial concentration, minor in Economics. Coursework in reliability &amp; risk analysis and operations research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="sub">The best way to reach me is on LinkedIn.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://www.linkedin.com/in/omar-a-khamis" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      <a class="btn" href="https://github.com/oakhamis" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.datacamp.com/portfolio/oakhamis" target="_blank" rel="noopener">DataCamp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Omar Khamis</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const buttons = document.querySelectorAll('.filter');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    buttons.forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+    cards.forEach(c => { c.hidden = f !== 'all' && c.dataset.cat !== f; });
+  }));
+</script>
 </body>
 </html>
